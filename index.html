@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="root">
+        <div class="info">
+            <h1>ИГРАЙ С НАМИ</h1>
+            <h2 id="meow">
+                MC.ZEENQUE.COM
+            </h2>
+        </div>
+        <img src="/logo.png" alt="" width="128" height="128">
+    </div>
+
+    <script>
+        // every 61s change text
+        // ?streamer=ZBEPI
+        let streamer = new URLSearchParams(window.location.search).get('streamer') || null
+        var text = [{
+            title: 'ИГРАЙ С НАМИ',
+            subtitle: 'MC.ZEENQUE.COM'
+        }, {
+            title: 'НАШ ТГ:',
+            subtitle: 't.me/suikomc'
+        }, {
+            title: 'ЛУЧШИЙ СТРИМЕР:',
+            subtitle: streamer || 'ZBEPI'
+        }, {
+            title: 'НАШ DISCORD',
+            subtitle: 'DS.ZEENQUE.COM'
+        }]
+        let i = 0
+        setInterval(() => {
+            let el = text[i]
+            if(!el.subtitle) el = text[0]
+            document.querySelector('h1').innerText = el.title
+            document.querySelector('h2').innerText = el.subtitle
+            i = i + 1;
+            if(i >= text.length) i = 0
+        }, 119000)
+    </script>
+</body>
+</html>
